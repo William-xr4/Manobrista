@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");
 var contexto = canvas.getContext("2d");
-var largura_carro =40;
-var altura_carro =40;
+var largura_carro =110;
+var altura_carro =200;
 var pos_x =0;
 var pos_y =0;
 var novo_plano_de_fundo;
@@ -19,12 +19,12 @@ function add() {
     nova_imagem_carro.src = imagem_carro;
 }
 
-function uploadBackground() {
+function atualiza_plano_de_fundo() {
 	contexto.drawImage(novo_plano_de_fundo, 0, 0, canvas.width, canvas.height);
 
 }
 
-function uploadGreenCar() {
+function atualiza_imagem_do_rover() {
 	contexto.drawImage(nova_imagem_carro, pos_x, pos_y, largura_carro, altura_carro);
 
 	
@@ -68,38 +68,38 @@ function up()
 {
 	if(pos_y>=0){
 		pos_y=pos_y-10;
-		uploadBackground();
-		uploadGreenCar();
+		atualiza_plano_de_fundo();
+		atualiza_imagem_do_rover();
 		console.log("Quando a seta para cima é pressionada, x = "+pos_x+" / y = "+pos_y);
 	}
 }
 
 function down()
 {
-	if(pos_y>=410){
+	if(pos_y<=410){
 		pos_y=pos_y+10;
-		uploadBackground();
-		uploadGreenCar();
+		atualiza_plano_de_fundo();
+		atualiza_imagem_do_rover();
 		console.log("Quando a seta para baixo é pressionada, x = "+pos_x+" / y = "+pos_y);
 	}
 }
 
 function left()
 {
-	if(pos_x>=1300){
+	if(pos_x>=0){
 		pos_x=pos_x-10;
-		uploadBackground();
-		uploadGreenCar();
+		atualiza_plano_de_fundo();
+		atualiza_imagem_do_rover();
 		console.log("Quando a seta para esquerda é pressionada, x = "+pos_x+" / y = "+pos_y);
 	}
 }
 
 function right()
 {
-	if(pos_x>=0){
+	if(pos_x<=890){
 		pos_x=pos_x+10;
-		uploadBackground();
-		uploadGreenCar();
+		atualiza_plano_de_fundo();
+		atualiza_imagem_do_rover();
 		console.log("Quando a seta para direita é pressionada, x = "+pos_x+" / y = "+pos_y);
 	}
 }
